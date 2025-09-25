@@ -1,0 +1,53 @@
+.home-page {
+  min-height: 100vh;
+  background-color: #f4f2ee;
+  padding-top: 20px;
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: 225px 1fr 300px;
+  gap: 20px;
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-sidebar {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}
+
+.home-feed {
+  min-height: 100vh;
+}
+
+.home-widgets {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .home-container {
+    grid-template-columns: 1fr 300px;
+  }
+  
+  .home-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .home-widgets {
+    display: none;
+  }
+}

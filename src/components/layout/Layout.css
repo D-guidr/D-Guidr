@@ -1,0 +1,67 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-content {
+  flex: 1;
+  padding-top: 0;
+}
+
+/* Ensure proper spacing for the main content */
+main {
+  min-height: calc(100vh - 60px); /* Subtract navbar height */
+}
+
+/* Smooth transitions for page changes */
+.layout-content > * {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading states */
+.layout-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+/* Error states */
+.layout-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.layout-error h2 {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.layout-error p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .layout-content {
+    padding-top: 0;
+  }
+}
