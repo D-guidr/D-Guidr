@@ -1,0 +1,38 @@
+/* src/components/common/Tabs.css */
+.tabs {
+  width: 100%;
+}
+
+.tabs-list {
+  display: flex;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabs-trigger {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabs-trigger.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.tabs-trigger:hover:not(.active) {
+  color: #374151;
+  background-color: #f9fafb;
+}
+
+.tabs-content {
+  padding: 1rem 0;
+}

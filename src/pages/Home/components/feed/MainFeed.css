@@ -1,0 +1,166 @@
+/* src/pages/Home/components/feed/MainFeed.css */
+.main-feed {
+  width: 100%;
+}
+
+.feed-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .feed-content {
+    gap: 1.5rem;
+  }
+}
+
+.feed-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.feed-tabs {
+  width: 100%;
+}
+
+.tabs-list {
+  position: sticky;
+  top: 64px;
+  z-index: 40;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tab-trigger {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .tab-trigger {
+    font-size: 1rem;
+  }
+}
+
+.tab-trigger:hover {
+  color: #374151;
+  background-color: #f9fafb;
+}
+
+.tab-trigger[data-state="active"] {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.tab-content {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .tab-content {
+    margin-top: 1.5rem;
+  }
+}
+
+.feed-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.news-section {
+  margin: 1.5rem 0;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #111827;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-feed {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-feed h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.empty-feed p {
+  font-size: 0.875rem;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.load-more-button {
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.load-more-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.load-more-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .news-feed {
+    gap: 1rem;
+  }
+}

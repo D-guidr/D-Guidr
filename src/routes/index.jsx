@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { ROUTES } from './RouteConfig'
-import Layout from '../components/layout/Layout'
+//import Layout from '../components/layout/Layout'
 import ProtectedRoute from '../components/ProtectedRoute'
 import PublicRoute from '../components/PublicRoute'
 import LoadingSpinner from '../components/ui/LoadingSpinner'
@@ -57,9 +57,7 @@ export const router = createBrowserRouter([
     path: ROUTES.HOME,
     element: (
       <ProtectedRoute>
-        <Layout>
-          <Home />
-        </Layout>
+        <Home />
       </ProtectedRoute>
     ),
   },
@@ -68,11 +66,11 @@ export const router = createBrowserRouter([
     path: ROUTES.NETWORK,
     element: (
       <ProtectedRoute>
-        <Layout>
+        {/* <Layout> */}
           <div className="min-h-screen flex items-center justify-content: center;">
             <h1>My Network - Coming Soon</h1>
           </div>
-        </Layout>
+        {/* </Layout> */}
       </ProtectedRoute>
     ),
   },
@@ -80,11 +78,11 @@ export const router = createBrowserRouter([
     path: ROUTES.JOBS,
     element: (
       <ProtectedRoute>
-        <Layout>
+        {/* <Layout> */}
           <div className="min-h-screen flex items-center justify-center">
             <h1>Jobs - Coming Soon</h1>
           </div>
-        </Layout>
+        {/* </Layout> */}
       </ProtectedRoute>
     ),
   },

@@ -9,7 +9,7 @@ import './index.css'
  * AuthCallback page - handles OAuth redirects from providers like Google
  * This page is shown briefly while Supabase processes the authentication callback
  */
-const AuthCallback = () => {
+export const AuthCallback = () => {
   const navigate = useNavigate()
 
   useEffect(() => {

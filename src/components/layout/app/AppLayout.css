@@ -1,0 +1,111 @@
+/* src/components/layout/app/AppLayout.css */
+.app-layout {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-layout-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.app-layout-container {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+.app-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.app-left-sidebar {
+  display: none;
+}
+
+.app-main-content {
+  min-height: 600px;
+}
+
+.app-right-sidebar {
+  display: none;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .app-layout-container {
+    padding: 1.5rem;
+  }
+  
+  .app-layout-grid {
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+  }
+  
+  .app-left-sidebar {
+    display: block;
+    position: sticky;
+    top: 5rem;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
+}
+
+/* Large desktop styles */
+@media (min-width: 1024px) {
+  .app-layout-grid {
+    grid-template-columns: 300px 1fr 350px;
+  }
+  
+  .app-right-sidebar {
+    display: block;
+    position: sticky;
+    top: 5rem;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
+  }
+}
+
+/* Ensure proper spacing for mobile bottom nav */
+@media (max-width: 767px) {
+  .app-layout-container {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Smooth transitions */
+.app-left-sidebar,
+.app-right-sidebar,
+.app-main-content {
+  transition: all 0.3s ease;
+}
