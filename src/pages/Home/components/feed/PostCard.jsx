@@ -7,7 +7,7 @@ import { Badge } from '../../../../components/common/Badge';
 import { useAuth } from '../../../../hooks/useAuth';
 import { useApi } from '../../../../hooks/useApi';
 import { ThumbsUp, MessageCircle, Share2, MoreHorizontal, CheckCircle, Heart, Bookmark } from 'lucide-react';
-import './PostCard.css';
+import './PostCard1.css';
 
 export function PostCard({ post, onUpdate }) {
   const { user } = useAuth();

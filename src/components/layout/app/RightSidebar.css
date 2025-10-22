@@ -1,10 +1,31 @@
 /* src/components/layout/RightSidebar.css */
-.right-sidebar {
+/* .right-sidebar {
   position: sticky;
   top: 5rem;
   height: calc(100vh - 5rem);
   overflow-y: auto;
+} */
+
+/* src/components/layout/RightSidebar.css */
+.right-sidebar {
+  position: sticky;
+  top: 5rem; /* aligns with your navbar height */
+  height: fit-content; /* ✅ instead of calc(100vh - 5rem) */
+  max-height: calc(100vh - 5rem); /* optional scroll limit */
+  overflow-y: auto;
+  box-sizing: border-box; /* ✅ ensures padding doesn't expand width */
+  width: 100%; /* ✅ respect the grid column width */
 }
+
+:root {
+  --nav-height: 4rem;
+}
+.top-navigation { height: var(--nav-height); }
+.left-sidebar, .right-sidebar {
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+}
+
 
 .sidebar-content {
   display: flex;

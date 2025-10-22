@@ -68,7 +68,7 @@
   }
   
   .app-layout-grid {
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 200px 1fr 200px;
     gap: 1.5rem;
   }
   
@@ -84,7 +84,7 @@
 /* Large desktop styles */
 @media (min-width: 1024px) {
   .app-layout-grid {
-    grid-template-columns: 300px 1fr 350px;
+    grid-template-columns: 1fr/4 1fr/2 1fr/4;
   }
   
   .app-right-sidebar {
@@ -109,3 +109,21 @@
 .app-main-content {
   transition: all 0.3s ease;
 }
+
+/* 
+.top-navigation { outline: 2px solid red; }
+.app-layout { outline: 2px dashed blue; }
+.app-layout-container { outline: 2px dotted green; }
+.app-layout-grid { outline: 2px double orange; }
+.app-left-sidebar { outline: 2px solid purple; }
+.app-main-content { outline: 2px solid brown; }
+.app-right-sidebar { outline: 2px solid pink; } */
+
+.top-navigation, .nav-container, .nav-content {
+  outline: 2px dashed red !important;
+}
+.app-layout, .app-layout-container, .app-layout-grid, .app-left-sidebar,
+.app-main-content, .app-right-sidebar {
+  outline: 2px dashed blue !important;
+}  
+/* End of src/components/layout/app/AppLayout.css */

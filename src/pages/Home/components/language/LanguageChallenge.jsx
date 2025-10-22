@@ -5,7 +5,7 @@ import { Button } from '../../../../components/common/Button';
 import { Progress } from '../../../../components/common/Progress';
 import { useApi } from '../../../../hooks/useApi';
 import { Trophy, Clock, Star, Zap, Target } from 'lucide-react';
-import './LanguageChallenge.css';
+import './LanguageChallenge1.css';
 
 export function LanguageChallenge({ userData }) {
   const { get, post } = useApi();

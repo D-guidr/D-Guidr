@@ -16,7 +16,7 @@ import {
   Gamepad2,
   Clock
 } from 'lucide-react';
-import './RightSidebar.css';
+import './RightSidebar1.css';
 
 export function RightSidebar({ userData }) {
   const { get, post } = useApi();

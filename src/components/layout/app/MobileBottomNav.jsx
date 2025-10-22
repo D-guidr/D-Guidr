@@ -6,7 +6,7 @@ import { Badge } from '../../common/Badge';
 import { Avatar } from '../../common/Avatar';
 import { useAuth } from '../../../hooks/useAuth';
 import { useApi } from '../../../hooks/useApi';
-import './MobileBottomNav.css';
+import './MobileBottomNav1.css';
 
 export function MobileBottomNav({ activeTab = "home", onTabChange }) {
   const { user } = useAuth();

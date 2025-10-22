@@ -4,7 +4,7 @@ import { Card } from '../../../../components/common/Card';
 import { Badge } from '../../../../components/common/Badge';
 import { useApi } from '../../../../hooks/useApi';
 import { Clock, Bookmark, Share2, ExternalLink } from 'lucide-react';
-import './NewsCard.css';
+import './NewsCard1.css';
 
 export function NewsCard({ news }) {
   const { post } = useApi();

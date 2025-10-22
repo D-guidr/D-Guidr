@@ -19,7 +19,7 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
-import './DSuiteHighlights.css';
+import './DSuiteHighlights1.css';
 
 export function DSuiteHighlights({ userData }) {
   const { get } = useApi();

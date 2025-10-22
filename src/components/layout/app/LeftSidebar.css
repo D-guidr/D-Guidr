@@ -5,6 +5,15 @@
   height: calc(100vh - 5rem);
   overflow-y: auto;
 }
+:root {
+  --nav-height: 4rem;
+}
+.top-navigation { height: var(--nav-height); }
+.left-sidebar, .right-sidebar {
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+}
+
 
 .sidebar-content {
   display: flex;
@@ -12,6 +21,7 @@
   gap: 1rem;
   padding: 0.5rem 0;
 }
+
 
 /* Profile Card */
 .profile-card {

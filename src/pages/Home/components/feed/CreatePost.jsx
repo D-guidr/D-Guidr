@@ -6,7 +6,7 @@ import { Button } from '../../../../components/common/Button';
 import { useAuth } from '../../../../hooks/useAuth';
 import { useApi } from '../../../../hooks/useApi';
 import { Image, Video, Calendar, HelpCircle, Lightbulb } from 'lucide-react';
-import './CreatePost.css';
+import './CreatePost1.css';
 
 export function CreatePost({ onPostCreated }) {
   const { user } = useAuth();

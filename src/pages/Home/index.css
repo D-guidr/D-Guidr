@@ -1,59 +1,15 @@
-/* src/pages/Home/index.css
+/* --- Home Page Container --- */
 .home-page {
-  font-family: 'Inter', sans-serif;
-}
-
-.home-container {
-  min-height: calc(100vh - 64px);
-}
-
-.home-grid {
-  align-items: start;
-}
-
-.left-sidebar {
-  position: sticky;
-  top: 80px;
-}
-
-.right-sidebar {
-  position: sticky;
-  top: 80px;
-}
-
-.main-content {
-  min-height: 600px;
-}
-
-.mobile-profile {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.loading-spinner {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f2ee;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  color: #6b7280;
+  flex-direction: column;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .home-container {
-    padding-bottom: 80px;
-  }
-} */
-
-.home-page {
-  font-family: 'Inter', sans-serif;
+/* Ensure the main feed area fits nicely within AppLayout */
+.home-page .main-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }

@@ -1,6 +1,8 @@
 /* src/components/layout/TopNavigation.css */
 .top-navigation {
   position: sticky;
+  width: 100%;
+  left: 0;
   top: 0;
   z-index: 50;
   background: white;
@@ -363,7 +365,6 @@
   color: #dc2626;
 }
 
-/* Click outside to close search results */
 .search-overlay {
   position: fixed;
   top: 0;
@@ -372,4 +373,7 @@
   bottom: 0;
   z-index: 999;
   background: transparent;
-}
+} 
+/* End of src/components/layout/TopNavigation.css */
+
+ 

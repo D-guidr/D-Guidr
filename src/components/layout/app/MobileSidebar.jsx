@@ -37,7 +37,7 @@ import {
   Star,
   Zap
 } from 'lucide-react';
-import './MobileSidebar.css';
+import './MobileSidebar1.css';
 
 export function MobileSidebar({ trigger }) {
   const { user, logout } = useAuth();

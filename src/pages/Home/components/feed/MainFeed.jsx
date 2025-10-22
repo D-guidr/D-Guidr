@@ -8,7 +8,7 @@ import { LanguageChallenge } from '../language/LanguageChallenge';
 import { Tabs } from '../../../../components/common/Tabs';
 import { useApi } from '../../../../hooks/useApi';
 import { useAuth } from '../../../../hooks/useAuth';
-import './MainFeed.css';
+import './MainFeed1.css';
 
 export function MainFeed({ userData }) {
   const { get } = useApi();
