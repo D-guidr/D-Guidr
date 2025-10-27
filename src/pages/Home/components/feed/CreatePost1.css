@@ -1,0 +1,336 @@
+/* ================================
+   CREATE POST — PRODUCTION STYLES
+   Works with CreatePost.jsx
+   ================================ */
+
+:root {
+  --cp-bg: #ffffff;
+  --cp-border: #e5e7eb;
+  --cp-soft: #f3f4f6;
+  --cp-muted: #6b7280;
+  --cp-heading: #111827;
+  --cp-brand: #0a66c2;
+  --cp-radius: 12px;
+  --cp-shadow: 0 2px 10px rgba(16, 24, 40, 0.06);
+}
+
+/* -------- Card (composer) -------- */
+.create-post-card {
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: var(--cp-radius);
+  box-shadow: var(--cp-shadow);
+  padding: 12px;
+}
+
+.create-post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-post-trigger {
+  flex: 1;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--cp-border);
+  background: var(--cp-soft);
+  text-align: left;
+  padding: 0 14px;
+  color: #6b7280;
+  font-size: 14px;
+  transition: background .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.create-post-trigger:hover {
+  background: #eceff3;
+}
+.create-post-trigger:focus-visible {
+  outline: 2px solid var(--cp-brand);
+  outline-offset: 2px;
+  background: #fff;
+  border-color: var(--cp-brand);
+  box-shadow: inset 0 0 0 1px var(--cp-brand);
+}
+
+.create-post-separator {
+  height: 1px;
+  background: var(--cp-border);
+  margin: 12px 0;
+}
+
+/* -------- Quick action row -------- */
+.create-post-actions {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.post-type-button {
+  height: 36px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  color: #374151;
+  transition: background .18s ease, transform .08s ease;
+}
+.post-type-button:hover { background: #f9fafb; }
+.post-type-button:active { transform: translateY(1px); }
+
+.post-type-icon { width: 18px; height: 18px; }
+.post-type-label { font-size: 13px; font-weight: 600; }
+
+/* color accents for icons */
+.icon-blue   { color: #2563eb; }
+.icon-green  { color: #059669; }
+.icon-orange { color: #ea580c; }
+.icon-purple { color: #7c3aed; }
+.icon-yellow { color: #ca8a04; }
+
+/* =================================
+   Avatar (Default)
+   ================================= */
+.create-post-card .avatar-fallback {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 18px;
+  font-weight: 700;
+  user-select: none;
+}
+.create-post-card .post-author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+/* =================================
+   MODAL (Create Post)
+   ================================= */
+.create-post-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 1200; /* above top nav */
+}
+
+.create-post-modal {
+  width: 100%;
+  max-width: 640px;
+  background: var(--cp-bg);
+  border: 1px solid var(--cp-border);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.25);
+  overflow: hidden;
+}
+
+/* Header (sticky on mobile full-screen) */
+.create-post-modal .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--cp-border);
+}
+.create-post-modal .modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cp-heading);
+}
+.create-post-modal .modal-header > button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.create-post-modal .modal-header > button:hover {
+  background: #f3f4f6;
+}
+
+/* Body */
+.create-post-modal .modal-content {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.author-name {
+  font-weight: 700;
+  color: var(--cp-heading);
+  font-size: 14px;
+}
+.post-type-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #0a66c2;
+  background: #e8f3ff;
+  border: 1px solid #d7e9ff;
+  margin-top: 2px;
+}
+
+/* Editor */
+.post-textarea {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid var(--cp-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  resize: vertical;
+  background: #fff;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.post-textarea::placeholder { color: var(--cp-muted); }
+.post-textarea:focus {
+  outline: none;
+  border-color: var(--cp-brand);
+  box-shadow: inset 0 0 0 1px var(--cp-brand);
+}
+
+/* Image preview */
+.post-image-preview {
+  position: relative;
+  border: 1px solid var(--cp-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.post-image-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.post-image-preview button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid var(--cp-border);
+  background: rgba(255,255,255,0.95);
+  cursor: pointer;
+}
+.post-image-preview button:hover { background: #fff; }
+
+/* Footer actions */
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cp-border);
+  background: var(--cp-soft);
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+.action-button:hover { background: #eceff3; }
+
+.post-type-select {
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--cp-border);
+  background: #fff;
+  padding: 0 8px;
+  font-size: 13px;
+}
+
+/* Primary submit */
+.post-submit-button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: var(--cp-brand);
+  color: #fff;
+  font-weight: 700;
+  transition: filter .15s ease;
+}
+.post-submit-button:disabled {
+  background: #9ac2ea;
+  cursor: not-allowed;
+}
+.post-submit-button:not(:disabled):hover { filter: brightness(0.95); }
+
+/* =================================
+   RESPONSIVE / MOBILE FULLSCREEN
+   ================================= */
+@media (max-width: 640px) {
+  .create-post-modal-overlay { align-items: start; }
+  .create-post-modal {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+  .create-post-modal .modal-header {
+    position: sticky;
+    top: 0;
+    background: var(--cp-bg);
+    z-index: 1;
+  }
+  .create-post-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .post-type-button, .create-post-trigger { transition: none; }
+}
+
+/* Optional: hide bottom nav while modal is open if you use a helper class on <html> */
+/* .cp-open .mobile-bottom-nav {
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity .15s ease, transform .15s ease, visibility 0s .15s;
+}
+.cp-open .mobile-bottom-nav.show {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity .15s ease, transform .15s ease;
+} */

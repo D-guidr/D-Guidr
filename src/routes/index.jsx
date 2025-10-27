@@ -10,6 +10,7 @@ import Landing from '../pages/Landing'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import Home from '../pages/Home'
+import { Profile } from '../pages/Profile'
 import AuthCallback from '../pages/AuthCallback'
 
 // Loading component for routes
@@ -58,6 +59,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Home />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: ROUTES.PROFILE,
+    element: (
+      <ProtectedRoute>
+        <Profile />
       </ProtectedRoute>
     ),
   },

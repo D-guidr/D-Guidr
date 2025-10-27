@@ -37,7 +37,7 @@ import {
   Star,
   Zap
 } from 'lucide-react';
-import './MobileSidebar1.css';
+import './MobileSidebar.css';
 
 export function MobileSidebar({ trigger }) {
   const { user, logout } = useAuth();
@@ -238,7 +238,7 @@ export function MobileSidebar({ trigger }) {
 
             <div className="achievement-badge">
               <span className="achievement-icon">{achievement.icon}</span>
-              <span className={`achievement-level ${achievement.color}`}>
+              <span className={`achievement-level`}>
                 {achievement.level} Explorer
               </span>
             </div>

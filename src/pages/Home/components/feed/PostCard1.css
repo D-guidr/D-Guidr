@@ -1,0 +1,316 @@
+/* =======================================
+   POST CARD — PRODUCTION STYLES
+   Works with PostCard.jsx
+   ======================================= */
+
+:root {
+  --pc-bg: #ffffff;
+  --pc-border: #e5e7eb;
+  --pc-soft: #f3f4f6;
+  --pc-muted: #6b7280;
+  --pc-heading: #111827;
+  --pc-brand: #0a66c2;
+  --pc-like: #2563eb;
+  --pc-heart: #e11d48;
+  --pc-radius: 12px;
+  --pc-shadow: 0 2px 10px rgba(16, 24, 40, .06);
+}
+
+/* Card wrapper (Card component adds base styles; we refine here) */
+.post-card {
+  background: var(--pc-bg);
+  border: 1px solid var(--pc-border);
+  border-radius: var(--pc-radius);
+  box-shadow: var(--pc-shadow);
+  padding: 12px;
+}
+
+/* ============== Header ============== */
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-info {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.author-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--pc-heading);
+  line-height: 1.2;
+  font-size: 14px;
+}
+
+.verified-badge {
+  width: 16px;
+  height: 16px;
+  color: #22c55e;
+  flex: 0 0 16px;
+}
+
+.author-title {
+  margin: 0;
+  font-size: 12px;
+  color: #374151;
+}
+
+.post-time {
+  margin: 0;
+  font-size: 12px;
+  color: var(--pc-muted);
+}
+
+.post-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.more-actions {
+  padding: 6px;
+  border-radius: 8px;
+}
+.more-icon { width: 18px; height: 18px; color: #475569; }
+
+.bookmark-icon {
+  width: 18px;
+  height: 18px;
+  color: #475569;
+  transition: color .18s ease, transform .08s ease;
+}
+.bookmark-icon.bookmarked { color: #f59e0b; }
+.more-actions:active .bookmark-icon { transform: scale(.95); }
+
+/* ============== Content ============== */
+.post-content {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.post-text {
+  margin: 0;
+  font-size: 14px;
+  color: #111827;
+  white-space: pre-wrap;            /* keep line breaks */
+  word-wrap: break-word;
+}
+
+.post-image {
+  position: relative;
+  border: 1px solid var(--pc-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0f19;
+}
+.post-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;               /* handles tall/wide images */
+}
+
+/* ============== Tags & Type ============== */
+.post-tags {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.post-tag {
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.post-type-badge {
+  margin-top: 6px;
+}
+
+/* ============== Stats row ============== */
+.post-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 2px 6px;
+  border-top: 1px solid var(--pc-border);
+  color: var(--pc-muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.stat-item span { color: #374151; }
+.stat-actions {
+  display: inline-flex;
+  gap: 10px;
+}
+
+/* ============== Action bar ============== */
+.post-actions-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  border-top: 1px solid var(--pc-border);
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+.action-button {
+  height: 36px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #374151;
+  transition: background .18s ease, transform .08s ease, color .18s ease;
+}
+.action-button:hover { background: #f9fafb; }
+.action-button:active { transform: translateY(1px); }
+
+.action-icon { width: 18px; height: 18px; }
+.action-label { font-size: 13px; font-weight: 600; }
+
+.action-button.liked { color: var(--pc-like); }
+.action-button .filled { color: var(--pc-heart); }  /* Heart when liked */
+
+/* Tiny bounce when toggling like (optional) */
+.action-button.liked .action-icon {
+  animation: pc-like-bounce .4s ease;
+}
+@keyframes pc-like-bounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ============== Comments ============== */
+.comments-section {
+  margin-top: 8px;
+  border-top: 1px solid var(--pc-border);
+  padding-top: 8px;
+  display: grid;
+  gap: 10px;
+}
+
+.comments-list {
+  display: grid;
+  gap: 10px;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.comment-content {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.comment-author {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--pc-heading);
+}
+.comment-time {
+  font-size: 11px;
+  color: var(--pc-muted);
+}
+
+.comment-text {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  color: #111827;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.no-comments {
+  text-align: center;
+  padding: 12px 6px;
+  color: var(--pc-muted);
+  font-size: 12px;
+}
+
+/* Add comment box */
+.add-comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--pc-border);
+  padding-top: 8px;
+}
+
+.comment-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.comment-input {
+  flex: 1;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--pc-border);
+  background: var(--pc-soft);
+  padding: 0 12px;
+  font-size: 13px;
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.comment-input::placeholder { color: var(--pc-muted); }
+.comment-input:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--pc-brand);
+  box-shadow: inset 0 0 0 1px var(--pc-brand);
+}
+
+.comment-submit {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* ============== Accessibility ============== */
+.more-actions:focus-visible,
+.action-button:focus-visible,
+.comment-submit:focus-visible {
+  outline: 2px solid var(--pc-brand);
+  outline-offset: 2px;
+}
+
+/* ============== Responsive tweaks ============== */
+@media (max-width: 640px) {
+  .post-card { padding: 10px; }
+  .post-actions-bar { gap: 4px; }
+  .action-label { font-size: 12px; }
+  .post-image { border-radius: 10px; }
+}

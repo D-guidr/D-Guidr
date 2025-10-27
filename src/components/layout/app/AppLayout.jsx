@@ -84,7 +84,7 @@ import { MobileBottomNav } from './MobileBottomNav';
 import { MobileProfileView } from '../../profile/MobileProfileView';
 import { useAuth } from '../../../hooks/useAuth';
 import { useUser } from '../../../hooks/useUser';
-//import './AppLayout1.css';
+import './AppLayout.css';
 
 export function AppLayout({ children, defaultTab = "home" }) {
   const { user } = useAuth();
@@ -95,7 +95,7 @@ export function AppLayout({ children, defaultTab = "home" }) {
   // Simple mobile detection
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 769);
     };
 
     checkMobile();
@@ -125,8 +125,9 @@ export function AppLayout({ children, defaultTab = "home" }) {
 
   return (
     <div className={`app-layout ${isMobile ? 'mobile' : 'desktop'}`}>
-      <TopNavigation />
-      
+      <div className="app-layout-TopNavigation">
+        <TopNavigation />
+      </div>
       <div className="app-layout-container">
         <div className="app-layout-grid">
           {/* Left Sidebar - Hidden on mobile */}

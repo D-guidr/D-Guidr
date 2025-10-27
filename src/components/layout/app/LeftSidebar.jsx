@@ -21,7 +21,7 @@ import {
   Calendar,
   Target
 } from 'lucide-react';
-import './LeftSidebar1.css';
+import './LeftSidebar.css';
 
 export function LeftSidebar({ userData }) {
   const { user } = useAuth();

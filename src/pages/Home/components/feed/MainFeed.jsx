@@ -104,7 +104,7 @@ export function MainFeed({ userData }) {
         <CreatePost onPostCreated={handlePostCreated} />
 
         {/* D-Suite Highlights */}
-        <DSuiteHighlights userData={userData} />
+        {/* <DSuiteHighlights userData={userData} /> */}
 
         {/* Language Challenge Banner */}
         <LanguageChallenge userData={userData} />

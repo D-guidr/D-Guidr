@@ -1,117 +1,5 @@
-/* src/components/layout/app/AppLayout.css */
-.app-layout {
-  min-height: 100vh;
-  background-color: #f9fafb;
-  display: flex;
-  flex-direction: column;
-}
 
-.app-layout-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f9fafb;
-}
-
-.loading-spinner {
-  text-align: center;
-  color: #6b7280;
-}
-
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #e5e7eb;
-  border-top: 4px solid #2563eb;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.app-layout-container {
-  flex: 1;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 1rem;
-}
-
-.app-layout-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-
-.app-left-sidebar {
-  display: none;
-}
-
-.app-main-content {
-  min-height: 600px;
-}
-
-.app-right-sidebar {
-  display: none;
-}
-
-/* Desktop styles */
-@media (min-width: 768px) {
-  .app-layout-container {
-    padding: 1.5rem;
-  }
-  
-  .app-layout-grid {
-    grid-template-columns: 200px 1fr 200px;
-    gap: 1.5rem;
-  }
-  
-  .app-left-sidebar {
-    display: block;
-    position: sticky;
-    top: 5rem;
-    height: calc(100vh - 6rem);
-    overflow-y: auto;
-  }
-}
-
-/* Large desktop styles */
-@media (min-width: 1024px) {
-  .app-layout-grid {
-    grid-template-columns: 1fr/4 1fr/2 1fr/4;
-  }
-  
-  .app-right-sidebar {
-    display: block;
-    position: sticky;
-    top: 5rem;
-    height: calc(100vh - 6rem);
-    overflow-y: auto;
-  }
-}
-
-/* Ensure proper spacing for mobile bottom nav */
-@media (max-width: 767px) {
-  .app-layout-container {
-    padding-bottom: 5rem;
-  }
-}
-
-/* Smooth transitions */
-.app-left-sidebar,
-.app-right-sidebar,
-.app-main-content {
-  transition: all 0.3s ease;
-}
-
-/* 
-.top-navigation { outline: 2px solid red; }
+/* .top-navigation { outline: 2px solid red; }
 .app-layout { outline: 2px dashed blue; }
 .app-layout-container { outline: 2px dotted green; }
 .app-layout-grid { outline: 2px double orange; }
@@ -119,11 +7,419 @@
 .app-main-content { outline: 2px solid brown; }
 .app-right-sidebar { outline: 2px solid pink; } */
 
-.top-navigation, .nav-container, .nav-content {
+/* .top-navigation, .nav-container, .nav-content {
   outline: 2px dashed red !important;
 }
 .app-layout, .app-layout-container, .app-layout-grid, .app-left-sidebar,
 .app-main-content, .app-right-sidebar {
-  outline: 2px dashed blue !important;
-}  
-/* End of src/components/layout/app/AppLayout.css */
+  outline: 2px dashed rgb(21, 0, 255) !important;
+}  */
+/* ---------------------------
+   Global Layout Wrapper
+---------------------------- */
+.app-layout {
+  min-height: 100vh;
+  background-color: #f3f2ef;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* overflow-x: hidden;
+  overflow-y: hidden;  */
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+
+/* ---------------------------
+   Loading State
+---------------------------- */
+.app-layout-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f2ef;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e8e8e8;
+  border-top: 4px solid #0a66c2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------
+   Core Page Container
+---------------------------- */
+.app-layout-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 52px; /* LinkedIn nav height is 52px */
+  background-color: #f3f2ef;
+  height: calc(100vh - 52px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ---------------------------
+    Top Navigation Wrapper
+---------------------------- */
+.app-layout-TopNavigation {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* ---------------------------
+   3-Column Grid (Desktop)
+---------------------------- */
+.app-layout-grid {
+  display: grid;
+  grid-template-columns: 230px 1fr 300px;
+  gap: 24px; /* LinkedIn uses 24px gap */
+  width: 100%;
+  max-width: 1200px; /* LinkedIn's exact max-width */
+  padding: 24px 20px 24px; /* top padding for nav + side padding */
+  height: 100%;
+  box-sizing: border-box;
+  align-items: start; /* Important for sticky sidebars */
+}
+
+/* Left Sidebar */
+.app-left-sidebar {
+  position: sticky;
+  top: 72px; /* 52px nav + 20px padding */
+  align-self: start;
+  height: fit-content;
+}
+
+/* Main Feed */
+.app-main-content {
+  min-height: calc(100vh - 72px);
+  width: 100%;
+}
+
+/* Right Sidebar */
+.app-right-sidebar {
+  position: sticky;
+  top: 72px; /* 52px nav + 20px padding */
+  align-self: start;
+  height: fit-content;
+}
+
+/* Independent scroll for each section */
+.app-layout-grid > .app-left-sidebar{
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+  position: sticky;   
+}
+.app-layout-grid > .app-main-content{
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  position: relative;        /* Remove sticky */
+}
+.app-layout-grid > .app-right-sidebar {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  position: sticky;        /*Remove sticky*/
+}
+
+
+/* Custom scrollbar for webkit */
+/* .app-layout-grid > .app-left-sidebar::-webkit-scrollbar,
+.app-layout-grid > .app-main-content::-webkit-scrollbar,
+.app-layout-grid > .app-right-sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.app-layout-grid > .app-left-sidebar::-webkit-scrollbar-track,
+.app-layout-grid > .app-main-content::-webkit-scrollbar-track,
+.app-layout-grid > .app-right-sidebar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.app-layout-grid > .app-left-sidebar::-webkit-scrollbar-thumb,
+.app-layout-grid > .app-main-content::-webkit-scrollbar-thumb,
+.app-layout-grid > .app-right-sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.app-layout-grid > .app-left-sidebar::-webkit-scrollbar-thumb:hover,
+.app-layout-grid > .app-main-content::-webkit-scrollbar-thumb:hover,
+.app-layout-grid > .app-right-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+} */
+
+/* Optional: smooth scroll */
+.app-layout-grid > div {
+  scroll-behavior: smooth;
+}
+
+/* ---------------------------
+   Mobile Bottom Nav
+---------------------------- */
+.mobile-bottom-nav {
+  display: none; /* Hidden by default, shown only on mobile */
+}
+
+/* ---------------------------
+   Responsive Behavior
+---------------------------- */
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .app-layout-grid {
+    grid-template-columns: 230px 1fr 300px;
+    max-width: 1200px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 894px) {
+  .app-layout-grid {
+    grid-template-columns: 225px 1fr 250px;
+    gap: 20px;
+    padding: 20px 20px 24px;
+    max-width: 100%;
+  }
+
+    .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    z-index: 1000;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 894px) and (min-width: 769px) {
+  .app-layout-grid {
+    grid-template-columns: 200px 1fr 220px;
+    gap: 20px;
+    padding: 20px 20px 24px;
+    max-width: 100%;
+  }
+
+    .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    z-index: 1000;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
+  .app-layout-container {
+    padding-top: 52px;
+    height: calc(100vh - 52px);
+  }
+
+  .app-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 12px 60px; /* Bottom padding for mobile nav */
+    max-width: 100%;
+  }
+
+  .app-left-sidebar,
+  .app-right-sidebar {
+    display: none;
+  }
+
+  .app-main-content {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    z-index: 1000;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Small Mobile (<= 375px) */
+@media (max-width: 375px) {
+  .app-layout-grid {
+    padding: 8px 12px 80px;
+    gap: 6px;
+  }
+}
+
+/* ---------------------------
+   LinkedIn-Specific Styling
+---------------------------- */
+
+/* Card styling for content */
+.app-main-content > * {
+  /* background: white; */
+  background: #f3f2ef;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 8px;
+  border: 0px solid transparent;
+}
+
+.app-layout-grid:not(.mobile) .app-main-content > * {
+  margin-bottom: 16px;
+}
+
+/* Sidebar card styling */
+.app-left-sidebar > *,
+.app-right-sidebar > * {
+  /* background: white; */
+  background: #f3f2ef;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 8px;
+  border: 0px solid transparent;
+}
+
+/* ---------------------------
+   High Contrast & Motion
+---------------------------- */
+@media (prefers-contrast: high) {
+  .app-layout {
+    background-color: #ffffff;
+  }
+  
+  .app-main-content > *,
+  .app-left-sidebar > *,
+  .app-right-sidebar > * {
+    border: 0px solid #000000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: transparent;
+  }
+  
+  .app-layout-grid > div {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------
+   Safe Area Support (for notches)
+---------------------------- */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .app-layout-container {
+    padding-top: calc(52px + env(safe-area-inset-top));
+  }
+  
+  @media (max-width: 768px) {
+    .app-layout-grid {
+      padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+    
+    .mobile-bottom-nav {
+      padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* ---------------------------
+   Print Styles
+---------------------------- */
+@media print {
+  .app-layout {
+    background: white;
+  }
+  
+  .app-layout-container {
+    padding-top: 0;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .app-layout-grid {
+    display: block;
+    padding: 0 !important;
+    max-width: none;
+  }
+  
+  .app-left-sidebar,
+  .app-right-sidebar,
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+  
+  .app-main-content {
+    min-height: auto;
+    overflow: visible;
+  }
+}
+}

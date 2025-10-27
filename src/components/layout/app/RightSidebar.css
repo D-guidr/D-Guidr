@@ -1,82 +1,87 @@
-/* src/components/layout/RightSidebar.css */
-/* .right-sidebar {
-  position: sticky;
-  top: 5rem;
-  height: calc(100vh - 5rem);
-  overflow-y: auto;
-} */
+/* ================================
+   RIGHT SIDEBAR — PRODUCTION STYLES
+   Works with your RightSidebar.jsx
+   ================================ */
 
-/* src/components/layout/RightSidebar.css */
+/* Sticky column with independent scroll */
 .right-sidebar {
+  --nav-height: var(--nav-height, 56px);
+  --content-gap: var(--content-gap, 12px);
   position: sticky;
-  top: 5rem; /* aligns with your navbar height */
-  height: fit-content; /* ✅ instead of calc(100vh - 5rem) */
-  max-height: calc(100vh - 5rem); /* optional scroll limit */
+  top: calc(var(--nav-height) + var(--content-gap));
+  align-self: start;
+  height: calc(100vh - var(--nav-height) - var(--content-gap));
   overflow-y: auto;
-  box-sizing: border-box; /* ✅ ensures padding doesn't expand width */
-  width: 100%; /* ✅ respect the grid column width */
+  -webkit-overflow-scrolling: touch;  /* smooth on iOS */
 }
 
-:root {
-  --nav-height: 4rem;
-}
-.top-navigation { height: var(--nav-height); }
-.left-sidebar, .right-sidebar {
-  top: var(--nav-height);
-  height: calc(100vh - var(--nav-height));
-}
-
-
+/* Column stack of cards */
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 0.5rem 0;
+  gap: 12px;
 }
 
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;  
+}
+
+/* ----------------
+   Card foundations
+   ---------------- */
 .sidebar-card {
-  padding: 1rem;
+  background: var(--bg, #ffffff);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow, 0 1px 2px rgba(16, 24, 40, 0.03));
 }
 
-.card-header {
+/* Header + content + footer */
+.sidebar-card .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  padding: 12px 12px 0 12px;
+  margin-bottom: 8px;
 }
 
-.card-header h3 {
-  font-size: 0.875rem;
+.sidebar-card .card-header h3 {
+  font-size: 0.95rem;
   font-weight: 600;
   color: #111827;
   margin: 0;
 }
 
-.header-icon {
-  width: 1rem;
-  height: 1rem;
+.sidebar-card .header-icon {
+  width: 16px;
+  height: 16px;
   color: #6b7280;
 }
 
-.card-content {
+.sidebar-card .card-content {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 12px;
+  padding: 0 12px 12px 12px;
 }
 
-.card-footer {
+.sidebar-card .card-footer {
+  display: inline-flex;
   width: 100%;
   justify-content: center;
+  padding: 8px 12px 12px;
   font-size: 0.875rem;
-  padding: 0.5rem;
 }
 
-/* D-Buddies Suggestions */
+/* =============
+   Suggestions
+   ============= */
 .suggestion-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .suggestion-info {
@@ -85,18 +90,23 @@
 }
 
 .suggestion-name {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #111827;
-  margin: 0 0 0.125rem 0;
-  line-height: 1.2;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .suggestion-title {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #6b7280;
-  margin: 0 0 0.125rem 0;
-  line-height: 1.2;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .suggestion-mutual {
@@ -107,109 +117,148 @@
 
 .add-button {
   flex-shrink: 0;
-  padding: 0.375rem;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 8px;
 }
 
 .add-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
 }
 
-/* Language Chat Rooms */
+/* Fallback selector if you can't add className */
+.right-sidebar .suggestion-item .avatar,
+.right-sidebar .suggestion-item .avatar img {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+/* =====================
+   Language Chat Rooms
+   ===================== */
 .chat-room-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.75rem;
+  padding: 10px 10px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   background: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color .18s ease, border-color .18s ease;
+  text-align: left;
 }
 
 .chat-room-button:hover {
   background-color: #f9fafb;
-  border-color: #d1d5db;
+  border-color: #e0e7ff;
 }
 
 .room-info {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 10px;
 }
 
 .room-status-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
 }
 
-.room-status-dot.green {
-  background-color: #10b981;
-}
-
-.room-status-dot.blue {
-  background-color: #3b82f6;
-}
-
-.room-status-dot.purple {
-  background-color: #8b5cf6;
-}
+.room-status-dot.green  { background-color: #10b981; }
+.room-status-dot.blue   { background-color: #3b82f6; }
+.room-status-dot.purple { background-color: #8b5cf6; }
 
 .room-badge {
   font-size: 0.75rem;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+/* ==============
+    Conversation AI Cards
+   ============== */
+.ai-card .card-content { display: grid; gap: 8px; }
+
+.ai-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+  text-align: left;
 }
 
-/* Learning Games */
+.ai-button:hover {
+  background: #f9fafb;
+  border-color: #eef2f7;
+}
+
+.ai-info { display: flex; align-items: center; gap: 10px; }
+
+.ai-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #eef2ff;
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+}
+
+.ai-icon { width: 16px; height: 16px; color: #0a66c2; }
+.ai-emoji { font-size: 16px; line-height: 1; }
+
+.ai-title { font-size: 14px; font-weight: 600; color: #111827; margin: 0; }
+.ai-sub   { font-size: 12px; color: #6b7280; margin: 2px 0 0; }
+
+
+/* ==============
+   Learning Games
+   ============== */
 .game-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.5rem;
+  padding: 8px 8px;
   border-radius: 8px;
   background: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color .18s ease;
   text-align: left;
 }
 
-.game-button:hover {
-  background-color: #f9fafb;
-}
+.game-button:hover { background-color: #f9fafb; }
 
 .game-info {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
-.game-icon {
-  font-size: 1.5rem;
-}
+.game-icon { font-size: 1.25rem; }
 
 .game-details {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: 2px;
 }
 
 .game-name {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #111827;
   margin: 0;
 }
@@ -221,41 +270,45 @@
 }
 
 .external-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
   color: #9ca3af;
 }
 
-/* Upcoming Events */
+/* ==============
+   Upcoming Events
+   ============== */
 .event-item {
   display: flex;
-  align-items: flex-start;
-  padding-left: 0.75rem;
-  border-left: 4px solid #e5e7eb;
+  align-items: stretch;
+  gap: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color .18s ease;
+  border-radius: 8px;
+  padding: 6px 8px 6px 6px;
 }
 
-.event-item:hover {
-  border-left-color: #3b82f6;
+.event-item:hover { background-color: #f9fafb; }
+
+.event-border {
+  width: 3px;
+  border-radius: 3px;
+  background: #e5e7eb;
 }
 
-.event-border.border-blue { border-left-color: #3b82f6; }
-.event-border.border-green { border-left-color: #10b981; }
-.event-border.border-purple { border-left-color: #8b5cf6; }
-.event-border.border-orange { border-left-color: #f59e0b; }
-.event-border.border-pink { border-left-color: #ec4899; }
+.border-blue   { background-color: #3b82f6; }
+.border-green  { background-color: #10b981; }
+.border-purple { background-color: #8b5cf6; }
+.border-orange { background-color: #f59e0b; }
+.border-pink   { background-color: #ec4899; }
 
-.event-content {
-  flex: 1;
-  padding: 0.25rem 0 0.25rem 0.75rem;
-}
+.event-content { flex: 1; }
 
 .event-title {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #111827;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 6px 0;
   line-height: 1.3;
 }
 
@@ -266,26 +319,28 @@
 }
 
 .event-date {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #6b7280;
   margin: 0;
 }
 
 .event-badge {
-  font-size: 0.625rem;
+  font-size: 0.68rem;
 }
 
-/* Recommended Jobs */
+/* ===============
+   Recommended Jobs
+   =============== */
 .job-item {
-  padding: 0.75rem;
+  padding: 10px;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: box-shadow .18s ease, border-color .18s ease;
 }
 
 .job-item:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   border-color: #d1d5db;
 }
 
@@ -293,161 +348,192 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 0.5rem;
+  margin-bottom: 6px;
 }
 
 .job-title {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: #111827;
   margin: 0;
   line-height: 1.2;
 }
 
 .match-badge {
-  font-size: 0.625rem;
-  padding: 0.25rem 0.5rem;
+  font-size: 0.68rem !important;
+  padding: 3px 6px !important;
+  border-radius: 999px !important;
+  color: #fff !important;
 }
 
-.match-high { background-color: #10b981; }
-.match-medium { background-color: #f59e0b; }
-.match-low { background-color: #ef4444; }
+.match-high   { background-color: #10b981 !important; } /* ≥ 91% */
+.match-medium { background-color: #f59e0b !important; } /* 81–90% */
+.match-low    { background-color: #ef4444 !important; } /* ≤ 80% */
 
 .job-company {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #6b7280;
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 8px 0;
 }
 
 .job-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.job-location, .job-salary {
-  font-size: 0.75rem;
+.job-location,
+.job-salary {
+  font-size: 0.78rem;
   color: #6b7280;
   margin: 0;
 }
 
-/* Groups & Communities */
+/* ======================
+   Groups & Communities
+   ====================== */
 .group-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.5rem;
+  padding: 8px 8px;
   border-radius: 8px;
   background: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color .18s ease;
   text-align: left;
 }
 
-.group-button:hover {
-  background-color: #f9fafb;
-}
+.group-button:hover { background-color: #f9fafb; }
 
 .group-info {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
-.group-icon {
-  font-size: 1.5rem;
-}
+.group-icon { font-size: 1.25rem; }
 
 .group-details {
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: 2px;
 }
 
 .group-name {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #111827;
   margin: 0;
 }
 
 .group-members {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #6b7280;
   margin: 0;
 }
 
 .join-button {
-  padding: 0.375rem;
+  padding: 4px;
+  border-radius: 8px;
 }
 
 .join-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
 }
 
-/* Trending Topics */
+/* ===============
+   Trending Topics
+   =============== */
 .topic-item {
-  padding: 0.5rem 0;
-}
-
-.topic-item:not(:last-child) {
+  padding: 8px 0;
   border-bottom: 1px solid #f3f4f6;
 }
+.topic-item:last-child { border-bottom: none; }
 
 .topic-tag {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #111827;
-  margin: 0 0 0.125rem 0;
+  margin: 0 0 2px 0;
 }
 
 .topic-count {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #6b7280;
   margin: 0;
 }
 
-/* Loading States */
+/* -------------
+   Loading state
+   ------------- */
 .sidebar-loading {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 12px;
 }
 
 .skeleton-card {
   height: 150px;
   background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
   background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 8px;
+  animation: rside-loading 1.5s infinite;
+  border-radius: 12px;
+}
+@keyframes rside-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
+/* -----------
+   Scrollbars
+   ----------- */
+/* Thin but visible (good a11y); switch to hidden if you prefer */
+/* .right-sidebar { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+.right-sidebar::-webkit-scrollbar { width: 6px; }
+.right-sidebar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+.right-sidebar::-webkit-scrollbar-track { background: transparent; } */
 
-/* Scrollbar Styling */
+/* -----------
+   Scrollbars — fully hidden (still scrolls)
+   ----------- */
+
+/* Make sure the element that scrolls has these */
+/* Cross-browser hide */
+.right-sidebar {
+  overflow-y: auto;
+  -ms-overflow-style: none;   /* IE/old Edge */
+  scrollbar-width: none;      /* Firefox */
+}
 .right-sidebar::-webkit-scrollbar {
-  width: 4px;
+  width: 0 !important;        /* Chrome/Safari/Edge */
+  height: 0 !important;
+  background: transparent !important;    /* Chrome/Safari */
 }
-
-.right-sidebar::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
 .right-sidebar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 2px;
+  background: transparent !important;    /* Chrome/Safari */
 }
 
-.right-sidebar::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+
+
+/* -------------
+   Responsive
+   ------------- */
+@media (max-width: 1024px) {
+  .right-sidebar {
+    top: calc(var(--nav-height) + 0px);
+    height: calc(100vh - var(--nav-height) - 8px);
+  }
 }
+@media (max-width: 767px) {
+  /* AppLayout hides this column on mobile, keep a safeguard too */
+  .right-sidebar { display: none; }
+}
+/* ================================
+   APP LAYOUT CSS SNIPPET
+   Works with your AppLayout.jsx
+   ================================ */
+

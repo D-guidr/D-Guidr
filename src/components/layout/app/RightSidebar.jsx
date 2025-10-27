@@ -14,9 +14,10 @@ import {
   MessageCircle,
   ExternalLink,
   Gamepad2,
-  Clock
+  Clock,
+  Mic,
 } from 'lucide-react';
-import './RightSidebar1.css';
+import './RightSidebar.css';
 
 export function RightSidebar({ userData }) {
   const { get, post } = useApi();
@@ -295,6 +296,71 @@ export function RightSidebar({ userData }) {
           >
             Join a Room
           </Button>
+        </Card>
+
+        {/* Conversation AI */}
+        <Card className="sidebar-card ai-card">
+          <div className="card-header">
+            <h3>Conversation AI</h3>
+            <Mic className="header-icon" />
+          </div>
+
+          <div className="card-content">
+            <button
+              className="ai-button"
+              onClick={() => (window.location.href = '/language/ai?mode=voice')}
+            >
+              <div className="ai-info">
+                <div className="ai-icon-wrap">
+                  <Mic className="ai-icon" />
+                </div>
+                <div>
+                  <p className="ai-title">1:1 Voice Practice</p>
+                  <p className="ai-sub">Speak German with real-time feedback</p>
+                </div>
+              </div>
+              <ExternalLink className="external-icon" />
+            </button>
+
+            <button
+              className="ai-button"
+              onClick={() => (window.location.href = '/language/ai?mode=roleplay')}
+            >
+              <div className="ai-info">
+                <div className="ai-icon-wrap">
+                  <span className="ai-emoji">🎭</span>
+                </div>
+                <div>
+                  <p className="ai-title">Role-play Scenarios</p>
+                  <p className="ai-sub">Café, Job Interview, Arzt, Bahn…</p>
+                </div>
+              </div>
+              <ExternalLink className="external-icon" />
+            </button>
+
+            <button
+              className="ai-button"
+              onClick={() => (window.location.href = '/language/ai?mode=pronunciation')}
+            >
+              <div className="ai-info">
+                <div className="ai-icon-wrap">
+                  <span className="ai-emoji">🗣️</span>
+                </div>
+                <div>
+                  <p className="ai-title">Pronunciation Coach</p>
+                  <p className="ai-sub">Listen → repeat → get scored</p>
+                </div>
+              </div>
+              <ExternalLink className="external-icon" />
+            </button>
+          </div>
+
+          <button
+            className="card-footer"
+            onClick={() => (window.location.href = '/language/ai')}
+          >
+            Open Conversation AI
+          </button>
         </Card>
 
         {/* Learning Games */}

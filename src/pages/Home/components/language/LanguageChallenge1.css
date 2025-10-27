@@ -1,0 +1,267 @@
+/* =========================================
+   DAILY LANGUAGE CHALLENGE — Production CSS
+   Works with LanguageChallenge.jsx
+   ========================================= */
+
+:root{
+  --lc-radius: 14px;
+  --lc-border: #f6d9c2;       /* warm peach border */
+  --lc-soft: #fff7f2;         /* card bg */
+  --lc-soft-2: #fdf2e9;       /* subtle gradient tint */
+  --lc-text: #111827;
+  --lc-muted: #6b7280;
+  --lc-brand: #ec5b0a;        /* CTA orange */
+  --lc-dark: #0b0b18;         /* progress fill */
+}
+
+/* Card wrapper (your <Card class="language-challenge">) */
+.language-challenge{
+  border-radius: var(--lc-radius);
+  border: 1px solid var(--lc-border);
+  background: linear-gradient(180deg, var(--lc-soft) 0%, var(--lc-soft-2) 100%);
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  padding: 16px;
+}
+
+/* Top row: info on left, flag on right */
+.challenge-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Left side block */
+.challenge-info{
+  flex: 1;
+  min-width: 0;
+}
+
+/* Header (title + meta <> streak + xp) */
+.challenge-header{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.challenge-title-section{ display: grid; gap: 6px; }
+
+/* Trophy + h3 inline */
+.title-icon{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.trophy-icon{
+  width: 20px; height: 20px;
+  color: var(--lc-brand);
+}
+.language-challenge h3{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  color: var(--lc-text);
+}
+
+/* difficulty + type */
+.challenge-meta{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.difficulty-badge{
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #f3f4f6;
+}
+.difficulty-badge.green{ color:#047857; background:#ecfdf5; border-color:#a7f3d0; }
+.difficulty-badge.orange{ color:#b45309; background:#fff7ed; border-color:#fed7aa; }
+.difficulty-badge.red{ color:#b91c1c; background:#fef2f2; border-color:#fecaca; }
+.difficulty-badge.purple{ color:#6d28d9; background:#f5f3ff; border-color:#ddd6fe; }
+
+.challenge-type{ color:#374151; }
+
+/* Streak + XP (right of header) */
+.streak-display{
+  display: grid;
+  gap: 6px;
+  align-items: start;
+  text-align: right;
+}
+.streak-info, .xp-reward{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-end;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+.streak-icon, .xp-icon{ width: 16px; height: 16px; }
+
+/* Description */
+.challenge-description{
+  margin: 8px 0 10px;
+  font-size: 15px;
+  color: #334155;
+}
+
+/* Progress block */
+.progress-section{ display: grid; gap: 8px; }
+
+.progress-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #1f2937;
+}
+
+/* Robust styling for your <Progress class="challenge-progress" /> */
+.challenge-progress{
+  --track: #e5e5e7;
+  --fill: var(--lc-dark);
+  height: 10px !important;
+  border-radius: 999px !important;
+  background: var(--track) !important;
+  overflow: hidden;
+}
+/* common “indicator” patterns */
+.challenge-progress > div,
+.challenge-progress > span,
+.challenge-progress .progress-indicator{
+  height: 100% !important;
+  border-radius: inherit !important;
+  background: var(--fill) !important;
+}
+
+/* Time + percent row */
+.time-section{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.time-info{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 13px;
+}
+.time-icon{ width: 16px; height: 16px; }
+.completion-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #374151;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+.target-icon{ width: 14px; height: 14px; }
+
+/* Expired / completed notices */
+.expired-notice,
+.completed-notice{
+  margin-top: 8px;
+  font-size: 13px;
+  color: #6b7280;
+}
+.expired-notice .reset-time{ font-weight: 700; color:#111827; }
+
+/* Right side flag */
+.challenge-flag{ flex: 0 0 auto; }
+.flag-emoji{
+  font-size: 44px;            /* big flag like screenshot */
+  display: inline-block;
+}
+
+/* Actions row */
+.challenge-actions{
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CTA button */
+.start-button{
+  background: var(--lc-brand) !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  height: 38px !important;
+  padding: 0 16px !important;
+  font-weight: 800 !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 4px 10px rgba(236, 91, 10, .25);
+}
+.start-button:hover{ filter: brightness(1.03); }
+
+/* Outline alt button */
+.practice-button{
+  height: 38px !important;
+  border-radius: 10px !important;
+  border-color: #e5e7eb !important;
+  color: #111827 !important;
+  background: #fff !important;
+}
+
+/* State styling */
+.language-challenge.expired{
+  opacity: .85;
+}
+.language-challenge.completed{
+  border-color: #c7f9cc;
+  background: linear-gradient(180deg,#f4fff6 0%, #ecfff3 100%);
+}
+.start-button.completed{
+  background: #10b981 !important;
+  box-shadow: 0 4px 10px rgba(16,185,129,.22);
+}
+.start-button.expired{
+  background: #9ca3af !important;
+  box-shadow: none;
+}
+
+/* Loading skeleton */
+.language-challenge.loading{
+  padding: 0;
+  overflow: hidden;
+}
+.skeleton-challenge{
+  height: 120px;
+  background: linear-gradient(90deg,#f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: lc-skel 1.2s infinite;
+  border-radius: var(--lc-radius);
+}
+@keyframes lc-skel{
+  0%{ background-position: 200% 0; }
+  100%{ background-position: -200% 0; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px){
+  .challenge-content{ align-items: flex-start; }
+  .flag-emoji{ font-size: 36px; }
+  .language-challenge h3{ font-size: 16px; }
+  .challenge-description{ font-size: 14px; }
+}
+@media (max-width: 400px){
+  .challenge-header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .streak-display{ text-align: left; }
+}   

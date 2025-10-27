@@ -3,7 +3,17 @@
   padding-bottom: 2rem;
 }
 
+.mobile-profile-view{
 /* Profile Header */
+
+.profile-header {
+  background: white;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
 .profile-header {
   background: white;
   border-radius: 0 0 20px 20px;
@@ -655,4 +665,5 @@
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
+}
 }

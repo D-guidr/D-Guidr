@@ -18,4 +18,9 @@
 .avatar-fallback {
   font-weight: 600;
   color: #6b7280;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

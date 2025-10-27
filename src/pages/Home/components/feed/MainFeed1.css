@@ -1,0 +1,179 @@
+/* =======================================
+   MAIN FEED — PRODUCTION STYLES
+   Works with MainFeed.jsx
+   ======================================= */
+
+:root{
+  --feed-gap: 12px;
+  --feed-radius: 12px;
+  --feed-border: #e5e7eb;
+  --feed-soft: #f8fafc;
+  --feed-muted: #6b7280;
+  --feed-heading: #111827;
+  --brand: #0a66c2;
+}
+
+/* Column wrapper (center column) */
+.main-feed{
+  min-width: 0;                 /* prevent overflow from long words/images */
+  padding-bottom: 64px;         /* space for MobileBottomNav */
+}
+@supports(padding-bottom: env(safe-area-inset-bottom)){
+  .main-feed{ padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+}
+
+/* Stack feed pieces (CreatePost, banners, tabs, list, etc.) */
+.feed-content{
+  display: grid;
+  gap: var(--feed-gap);
+}
+
+/* ---------- Initial loading ---------- */
+.feed-loading{
+  display: grid;
+  place-items: center;
+  padding: 24px 0;
+}
+.loading-spinner{
+  font-size: 14px;
+  color: var(--feed-muted);
+  position: relative;
+  padding-left: 28px;
+}
+.loading-spinner::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 18px; height: 18px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  border-top-color: var(--brand);
+  animation: mf-spin 0.9s linear infinite;
+}
+@keyframes mf-spin{ to{ transform: translateY(-50%) rotate(360deg); } }
+
+/* ---------- Tabs ---------- */
+.feed-tabs{ margin-top: 2px; }
+
+.tabs-list{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--feed-border);
+  padding: 0 4px;
+}
+
+.tab-trigger{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 10px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.tab-trigger:hover{ background: #f9fafb; color: #111827; }
+
+/* Active (handles Radix, custom, or manual classes) */
+.tab-trigger[data-state="active"],
+.tab-trigger[aria-selected="true"],
+.tab-trigger.active{
+  color: var(--brand);
+}
+.tab-trigger[data-state="active"]::after,
+.tab-trigger[aria-selected="true"]::after,
+.tab-trigger.active::after{
+  content: "";
+  position: absolute;
+  left: 10px; right: 10px; bottom: -1px;
+  height: 2px; border-radius: 2px;
+  background: var(--brand);
+}
+
+.tab-content{ padding-top: 10px; }
+
+/* ---------- Feed content area ---------- */
+.feed-content-container{
+  display: grid;
+  gap: var(--feed-gap);
+}
+
+/* Empty state */
+.empty-feed{
+  text-align: center;
+  background: var(--feed-soft);
+  border: 1px solid var(--feed-border);
+  border-radius: var(--feed-radius);
+  padding: 28px 14px;
+}
+.empty-feed h3{
+  margin: 8px 0 4px;
+  font-size: 16px;
+  color: var(--feed-heading);
+}
+.empty-feed p{
+  margin: 0; font-size: 13px; color: var(--feed-muted);
+}
+.empty-icon{
+  font-size: 22px;
+}
+
+/* Posts list */
+.posts-list{
+  display: grid;
+  gap: var(--feed-gap);
+  animation: mf-fade .2s ease-out;
+}
+@keyframes mf-fade{ from{opacity:0; transform: translateY(4px);} to{opacity:1; transform: none;} }
+
+/* ---------- News section ---------- */
+.news-section{
+  margin-top: 4px;
+  background: #fff;
+}
+.section-title{
+  margin: 0 0 8px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--feed-heading);
+}
+.news-list{
+  display: grid;
+  gap: var(--feed-gap);
+}
+
+/* ---------- Load more ---------- */
+.load-more-container{
+  display: grid;
+  place-items: center;
+  margin: 6px 0 2px;
+}
+.load-more-button{
+  height: 36px;
+  padding: 0 14px;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid var(--feed-border);
+  background: #ffffff;
+  color: #111827;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, transform .08s ease;
+}
+.load-more-button:hover{ background: #f9fafb; border-color: #d1d5db; }
+.load-more-button:active{ transform: translateY(1px); }
+.load-more-button:disabled{
+  opacity: .6; cursor: default; transform: none;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px){
+  .tabs-list{ gap: 4px; }
+  .tab-trigger{ padding: 10px 8px; font-size: 12px; }
+  .section-title{ font-size: 13px; }
+}

@@ -1,5 +1,6 @@
 // Route configuration constants - makes it easy to manage all routes in one place
 export const ROUTES = {
+  PROFILE: '/profile',
   HOME: '/home',
   LOGIN: '/login',
   SIGNUP: '/signup',
