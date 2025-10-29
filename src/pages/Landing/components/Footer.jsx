@@ -47,13 +47,13 @@ const Footer = () => {
     }
   ];
 
-  const socialLinks = [
-    { name: 'LinkedIn', icon: '💼', href: '#linkedin' },
-    { name: 'Twitter', icon: '🐦', href: '#twitter' },
-    { name: 'Instagram', icon: '📷', href: '#instagram' },
-    { name: 'YouTube', icon: '📺', href: '#youtube' },
-    { name: 'Facebook', icon: '👥', href: '#facebook' }
-  ];
+  // const socialLinks = [
+  //   { name: 'LinkedIn', icon: '💼', href: '#linkedin' },
+  //   { name: 'Twitter', icon: '🐦', href: '#twitter' },
+  //   { name: 'Instagram', icon: '📷', href: '#instagram' },
+  //   { name: 'YouTube', icon: '📺', href: '#youtube' },
+  //   { name: 'Facebook', icon: '👥', href: '#facebook' }
+  // ];
 
   const legalLinks = [
     { name: 'Privacy Policy', href: '#privacy' },
@@ -82,7 +82,7 @@ const Footer = () => {
                 Join Europe's largest student community today.
               </p>
               
-              <div className="social-links">
+              {/* <div className="social-links">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
@@ -93,7 +93,7 @@ const Footer = () => {
                     <span className="social-icon">{social.icon}</span>
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
 
             <div className="footer-links-grid">
@@ -173,7 +173,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-badges">
+          {/* <div className="footer-badges">
             <div className="badge">
               <div className="badge-image">
                 <img src="/src/pages/Landing/assets/cloud_sync.jpg" alt="Secure Platform" />
@@ -192,7 +192,7 @@ const Footer = () => {
               </div>
               <span className="badge-text">4.9/5 Rating</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

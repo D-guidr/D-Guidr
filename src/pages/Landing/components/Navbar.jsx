@@ -35,7 +35,7 @@ const Navbar = () => {
     { label: 'D-Suite', href: '#d-suite' },
     { label: 'Community', href: '#community' },
     { label: 'Journey', href: '#overview' },
-    { label: 'About', href: '#about' }
+    { label: 'About Us', href: '#about us' }
   ];
 
   return (

@@ -56,18 +56,14 @@ const CTASection = () => {
 
   return (
     <section className="cta-section section-padding">
-      {/* Continuous Flight Animation */}
-      <div className="flight-container">
-        <div className="airplane">
-          <div className="airplane-icon">✈️</div>
-        </div>
-        <div className="flight-path"></div>
-        <div className="cloud cloud-1">☁️</div>
-        <div className="cloud cloud-2">☁️</div>
-        <div className="cloud cloud-3">☁️</div>
-      </div>
-
       <div className="container">
+        {/* Continuous Flight Animation (now inside container to be relative) */}
+        <div className="flight-container">
+          
+         
+          
+        </div>
+
         <div className="cta-content">
           <div className="cta-text">
             <h2 className="cta-title">

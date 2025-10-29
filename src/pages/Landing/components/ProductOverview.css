@@ -148,7 +148,7 @@
 
 .animation-container {
   position: relative;
-  height: 500px;
+  height: 600px;
   border-radius: 20px;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(0, 115, 177, 0.05) 0%, rgba(0, 160, 220, 0.05) 100%);
@@ -163,7 +163,7 @@
   height: 100% !important;
 }
 
-.floating-elements {
+/* .floating-elements {
   position: absolute;
   top: 0;
   left: 0;
@@ -217,7 +217,7 @@
   top: 70%;
   left: 20%;
   animation-delay: 4.5s;
-}
+} */
 
 .central-message {
   position: absolute;
@@ -255,7 +255,7 @@
   width: 100%;
 }
 
-.progress-bar {
+/* .progress-bar {
   width: 100%;
   height: 6px;
   background: #e0e0e0;
@@ -274,7 +274,7 @@
   color: #666666;
   font-weight: 600;
   font-size: 0.9rem;
-}
+} */
 
 @keyframes float {
   0%, 100% { 

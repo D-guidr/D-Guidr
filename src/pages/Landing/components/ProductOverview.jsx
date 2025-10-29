@@ -170,7 +170,7 @@ const ProductOverview = () => {
           <div className="animation-container">
             <canvas ref={canvasRef} className="background-animation"></canvas>
             
-            <div className="floating-elements">
+            {/* <div className="floating-elements">
               <div className="floating-element element-1">
                 <span>🎓</span>
                 <span>350+ Universities</span>
@@ -187,7 +187,7 @@ const ProductOverview = () => {
                 <span>🌍</span>
                 <span>24/7 Support</span>
               </div>
-            </div>
+            </div> */}
 
             <div className="central-message">
               <h3>Transform Your Future</h3>
@@ -196,7 +196,7 @@ const ProductOverview = () => {
           </div>
         </div>
 
-        <div className="journey-progress">
+        {/* <div className="journey-progress">
           <div className="progress-bar">
             <div 
               className="progress-fill" 
@@ -209,7 +209,7 @@ const ProductOverview = () => {
           <div className="progress-text">
             Step {activeStep + 1} of {journeySteps.length}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

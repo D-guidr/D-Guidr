@@ -18,14 +18,6 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section">
-      <div className="hero-background">
-        <img 
-          src="/src/pages/Landing/assets/cloud_sync.jpg" 
-          alt="D-Guidr Platform" 
-          className="hero-bg-image"
-        />
-        <div className="hero-overlay"></div>
-      </div>
       
       <div className="hero-container">
         <div className="hero-content">
@@ -72,12 +64,12 @@ const HeroSection = () => {
             <div className="visual-showcase">
               <div className="main-visual">
                 <img 
-                  src="/src/pages/Landing/assets/learning.jpg" 
+                  src="/src/pages/Landing/assets/Hello.png" 
                   alt="Learning Platform"
                   className="showcase-image main-image"
                 />
               </div>
-              
+{/*               
               <div className="side-visuals">
                 <div className="side-image-container">
                   <img 
@@ -105,7 +97,7 @@ const HeroSection = () => {
                   />
                   <div className="image-label">Career Help</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

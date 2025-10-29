@@ -181,13 +181,13 @@ const DSuiteSection = () => {
           </div>
         </div>
 
-        <div className="dsuite-cta">
-          {/* <div className="cta-content">
+        {/* <div className="dsuite-cta">
+          <div className="cta-content">
             <h3>Ready to Access All 9 Modules?</h3>
             <p>Get complete access to the entire D-Suite toolkit and transform your German journey</p>
             <button className="cta-button">Start Free Trial</button>
-          </div> */}
-          {/* <div className="cta-visual">
+          </div>
+          <div className="cta-visual">
             <div className="modules-showcase">
               {modules.slice(0, 9).map((module, index) => (
                 <div key={index} className="showcase-module">
@@ -196,8 +196,8 @@ const DSuiteSection = () => {
                 </div>
               ))}
             </div>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </div>
     </section>
   );

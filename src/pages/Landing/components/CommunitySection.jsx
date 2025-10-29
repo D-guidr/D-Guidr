@@ -6,32 +6,32 @@ const CommunitySection = () => {
     {
       title: 'Student Networks',
       description: 'Join city-specific groups and connect with students in your target universities across Germany.',
-      features: ['Berlin Student Hub', 'Munich Tech Community', 'Business Network'],
-      members: '10K+',
+      // features: ['Berlin Student Hub', 'Munich Tech Community', 'Business Network'],
+      // members: '10K+',
       image: '/src/pages/Landing/assets/friends.jpg',
       color: '#0073b1'
     },
     {
       title: 'Alumni Mentors',
       description: 'Get guidance from successful alumni who have walked the same path and can share valuable insights.',
-      features: ['1-on-1 Mentorship', 'Career Guidance', 'University Tips'],
-      members: '2K+',
+      // features: ['1-on-1 Mentorship', 'Career Guidance', 'University Tips'],
+      // members: '2K+',
       image: '/src/pages/Landing/assets/learning.jpg',
       color: '#00a0dc'
     },
     {
       title: 'Discussion Forums',
       description: 'Participate in active discussions about visas, accommodations, jobs, and life in Germany.',
-      features: ['Q&A with Experts', 'Experience Sharing', 'Problem Solving'],
-      members: '50K+',
+      // features: ['Q&A with Experts', 'Experience Sharing', 'Problem Solving'],
+      // members: '50K+',
       image: '/src/pages/Landing/assets/travel.jpg',
       color: '#0073b1'
     },
     {
       title: 'Events & Meetups',
       description: 'Join virtual and physical events, webinars, and networking sessions with the community.',
-      features: ['Weekly Webinars', 'City Meetups', 'Career Fairs'],
-      members: '1K+',
+      // features: ['Weekly Webinars', 'City Meetups', 'Career Fairs'],
+      // members: '1K+',
       image: '/src/pages/Landing/assets/cloud_sync.jpg',
       color: '#00a0dc'
     }
@@ -80,24 +80,24 @@ const CommunitySection = () => {
             >
               <div className="community-image">
                 <img src={feature.image} alt={feature.title} />
-                <div className="member-count">
+                {/* <div className="member-count">
                   <span className="count">{feature.members}</span>
                   <span className="label">Members</span>
-                </div>
+                </div> */}
               </div>
               
               <div className="community-content">
                 <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-description">{feature.description}</p>
                 
-                <div className="feature-list">
+                {/* <div className="feature-list">
                   {feature.features.map((item, itemIndex) => (
                     <div key={itemIndex} className="feature-item">
                       <span className="bullet" style={{ background: feature.color }}></span>
                       <span>{item}</span>
                     </div>
                   ))}
-                </div>
+                </div> */}
 
                 <button className="join-community-btn" style={{ background: feature.color }}>
                   Join Community
@@ -138,7 +138,7 @@ const CommunitySection = () => {
           </div>
         </div>
 
-        <div className="community-stats">
+        {/* <div className="community-stats">
           <div className="community-stat">
             <div className="stat-image">
               <img src="/src/pages/Landing/assets/learning.jpg" alt="Community Members" />
@@ -167,7 +167,7 @@ const CommunitySection = () => {
             <div className="stat-number">500+</div>
             <div className="stat-label">Monthly Events</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

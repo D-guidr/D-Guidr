@@ -4,10 +4,12 @@
   width: 100%;
   background: #ffffff;
   border-bottom: 1px solid #e0e0e0;
-  padding: 0.5rem 0;
+  align-items: center;       /* vertical center */
+  justify-content: center;
+  /* padding: 0.5rem 0; */
   z-index: 1000;
   transition: all 0.3s ease;
-
+}
 
 .navbar.scrolled {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -26,17 +28,29 @@
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  /* gap: 0.5rem; */
   text-decoration: none;
 }
 
 .brand-logo {
-  height: 32px;
-  width: auto;
+  height: 70px;
+  /* width: auto; */
+  object-fit: contain;
+  /* trim empty white padding visually */
+  
+  background: none;
+  border: none;
+
+  /* removes stray background color */
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0 0 transparent);
+
+  /* "virtual crop" trick */
+  clip-path: inset(3% 3% 3% 3%)
 }
 
 .brand-text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #0073b1;
   letter-spacing: -0.5px;
@@ -52,7 +66,7 @@
   color: #666666;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
   padding: 0.5rem 0;
@@ -60,6 +74,14 @@
 
 .nav-link:hover {
   color: #0073b1;
+}
+
+/* Remove default focus outline/border when links are clicked or focused */
+.nav-link:focus,
+.nav-link:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 .nav-link::after {
@@ -91,6 +113,13 @@
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Remove focus outline for buttons (accessibility: keep visible focus for keyboard users if desired) */
+.nav-btn:focus,
+.nav-btn:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .login-btn {
@@ -147,7 +176,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-container {
     padding: 0 1rem;
   }
@@ -166,11 +195,11 @@
     padding: 1rem;
     gap: 1rem;
     border-top: 1px solid #e0e0e0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
     transform: translateY(-10px);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
   }
 
   .nav-links.active {
